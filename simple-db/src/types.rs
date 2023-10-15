@@ -64,7 +64,7 @@ impl Display for DbValue {
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Row(pub Vec<DbValue>);
 
 impl Row {

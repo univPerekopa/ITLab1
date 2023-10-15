@@ -1,5 +1,7 @@
 mod database;
 mod table;
+#[cfg(test)]
+mod tests;
 mod types;
 
 pub use database::PinnedDatabase;
