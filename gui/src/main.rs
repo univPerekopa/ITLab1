@@ -247,7 +247,7 @@ fn ui_builder() -> impl Widget<AppData> {
                 return;
             };
 
-            let _ = db.remove_table(data.table_name_to_create.clone());
+            let _ = db.remove_table(data.table_name_to_remove.clone());
             let _ = db.save();
         })
         .padding(10.0);
