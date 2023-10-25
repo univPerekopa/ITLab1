@@ -1,7 +1,8 @@
 [workspace]
 members = [
-    "simple-db",
-    "gui"
+    "db-server",
+    "gui",
+    "simple-db"
 ]
 resolver = "2"
 
