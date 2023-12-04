@@ -1,0 +1,11 @@
+{
+  table(id: "users") {
+    id
+    rows(sortedBy:1){
+      values(columns:[0,1]) {
+        value
+        column
+      }
+    }
+  }
+}
