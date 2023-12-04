@@ -86,4 +86,8 @@ impl Table {
     pub fn rows(&self) -> &[Row] {
         &self.rows
     }
+
+    pub fn get_name(&self) -> &str {
+        &self.name
+    }
 }

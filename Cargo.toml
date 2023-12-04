@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "db-server",
+    "graphql-server",
     "gui",
     "simple-db"
 ]

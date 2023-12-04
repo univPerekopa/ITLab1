@@ -1,0 +1,13 @@
+[package]
+name = "gui"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+druid = "0.8.3"
+serde_json = "1.0.107"
+simple-db = { path = "../simple-db" }
+tokio = { version = "1.33.0", features = ["full"] }
+futures = "0.3"
