@@ -197,6 +197,10 @@ fn ui_builder() -> impl Widget<AppData> {
         let r = Handle::current();
         let c = data.client.clone();
         let n = data.table_name.clone();
+        if n.is_empty() {
+            return String::new();
+        }
+
         let x = std::thread::spawn(move || {
             r.block_on(c.get_rows_sorted(context::current(), n, sorted_by))
         })
