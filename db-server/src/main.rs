@@ -110,7 +110,7 @@ async fn main() {
     let server_addr = (IpAddr::V6(Ipv6Addr::LOCALHOST), 1337);
     let db = Arc::new(Mutex::new(None));
     Arc::new(Mutex::new(
-        PinnedDatabase::load_from_disk("./db".to_string()).unwrap(),
+        PinnedDatabase::load_from_disk("/home/tr3tiakoff/database/db".to_string()).unwrap(),
     ));
     // JSON transport is provided by the json_transport tarpc module. It makes it easy
     // to start up a serde-powered json serialization strategy over TCP.
