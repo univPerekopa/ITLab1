@@ -1,0 +1,83 @@
+syntax = "proto3";
+package database;
+
+service Service {
+	rpc create(CreateRequest) returns (SuccessfulResponse);
+	rpc open(Path) returns (SuccessfulResponse);
+	rpc get_name(EmptyRequest) returns (Name);
+	rpc get_table_names(EmptyRequest) returns (Names);
+	rpc save(EmptyRequest) returns (SuccessfulResponse);
+
+	rpc remove_table(Name) returns (SuccessfulResponse);
+	rpc create_table(CreateTableRequest) returns (SuccessfulResponse);
+
+	
+	rpc remove_row(RowPosition) returns (SuccessfulResponse);
+	rpc insert_row(InsertRowRequest) returns (SuccessfulResponse);
+	
+	rpc get_table_schema(Table) returns (Schema);
+	rpc get_rows_sorted(SortedRequest) returns (Rows);
+}
+   
+
+message EmptyRequest {
+}
+
+message CreateRequest {
+  string name = 1;
+  string path = 2;
+}
+
+message Path {
+  string path = 1;
+}
+
+message Name {
+  string name = 1;
+}
+
+message Names {
+  repeated Name names = 1;
+}
+
+message Table {
+  string table = 1;
+}
+
+message CreateTableRequest {
+  string name = 1;
+  Schema schema = 2; 
+}
+
+message Schema {
+  repeated int32 DBType = 1;
+}
+
+message RowPosition{
+  string table = 1;
+  uint32 index = 2;
+
+}
+
+message Row {
+  repeated string value = 1;
+}
+
+message Rows {
+  repeated Row rows = 1;
+}
+
+message InsertRowRequest {
+  string table = 1;
+  Row row = 2;
+}
+
+message SortedRequest {
+  string table = 1;
+  uint32 sorted_by = 2;
+}
+
+message SuccessfulResponse{
+  bool isSuccessful = 1;
+  string err = 2;
+}

@@ -1,8 +1,11 @@
 [workspace]
 members = [
+    "simple-db",
+    
     "db-server",
+    "grpc-server",
+
     "gui",
-    "simple-db"
 ]
 resolver = "2"
 
