@@ -39,10 +39,16 @@ impl Table {
     }
 
     pub fn remove_row(&mut self, idx: usize) {
-        self.rows.remove(idx);
+        if self.rows.len() > idx {
+            self.rows.remove(idx);
+        }
     }
 
-    pub fn get_rows_sorted(&self, sort_by: Option<usize>) -> impl Iterator<Item = &Row> + '_ {
+    pub fn get_rows_sorted(&self, mut sort_by: Option<usize>) -> impl Iterator<Item = &Row> + '_ {
+        if sort_by.unwrap_or(0) >= self.schema().len() {
+            sort_by = None;
+        }
+
         self.rows
             .iter()
             .enumerate()
