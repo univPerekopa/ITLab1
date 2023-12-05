@@ -7,7 +7,7 @@ use tarpc::{
 };
 use tokio::sync::Mutex;
 
-use simple_db::{DbType, PinnedDatabase, Row, Service};
+use simple_db::{DbType, PinnedDatabase, Row, rpc::Service};
 
 #[derive(Clone)]
 struct Server(pub Arc<Mutex<Option<PinnedDatabase>>>);

@@ -66,7 +66,7 @@ impl Service for Server {
         let name = lock.as_ref().map(|db| db.get_name().to_string());
         
         let reply = Name { 
-            name: name.unwrap()
+            name: name.unwrap_or("None".to_string())
         };
         return Ok(tonic::Response::new(reply));
     }
@@ -84,7 +84,7 @@ impl Service for Server {
                 };
                 return Ok(tonic::Response::new(reply));
             },
-            None => todo!(),
+            None => Ok(tonic::Response::new(Names { names: vec![ Name{ name: "None".to_string() } ] })),
         }
     }
     async fn save(&self, request: tonic::Request<EmptyRequest>)
@@ -211,8 +211,6 @@ impl Service for Server {
                         }
                     )
                 }
-            } else {
-                todo!()
             }
         }
 
@@ -245,7 +243,7 @@ impl Service for Server {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let server_addr = (IpAddr::V6(Ipv6Addr::LOCALHOST), 1337).into();
+    let server_addr = "[::1]:50051".parse().unwrap();
     let db = Arc::new(Mutex::new(None));
     Arc::new(Mutex::new(
         PinnedDatabase::load_from_disk("/home/tr3tiakoff/database/db".to_string()).unwrap(),

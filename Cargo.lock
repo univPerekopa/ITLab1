@@ -954,6 +954,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "gui-grpc"
+version = "0.1.0"
+dependencies = [
+ "druid",
+ "futures",
+ "prost",
+ "serde_json",
+ "simple-db",
+ "tarpc",
+ "tempfile",
+ "tokio",
+ "tonic",
+ "tonic-build",
+]
+
+[[package]]
 name = "h2"
 version = "0.3.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
