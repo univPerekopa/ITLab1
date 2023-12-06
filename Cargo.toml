@@ -4,6 +4,7 @@ members = [
     
     "db-server",
     "grpc-server",
+    "rest-server",
 
     "gui",
     "gui-grpc",
