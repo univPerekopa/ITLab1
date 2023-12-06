@@ -1,4 +1,6 @@
 mod database;
+pub mod grpc;
+pub mod rpc;
 mod table;
 #[cfg(test)]
 mod tests;
